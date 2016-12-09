@@ -3,5 +3,7 @@
  * 将PROXY 模块暴露出去
  */
 
-exports.user=require('./user');
-exports.plan=require('./plan');
+exports.user = require('./user');
+exports.plan = require('./plan');
+exports.song = require('./song');
+exports.playlist = require('./playlist');

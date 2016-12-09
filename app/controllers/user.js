@@ -15,7 +15,7 @@ router.get('/toadd', function (req, res) {
 /**
  * 用户列表页
  */
-router.get('/toquery', function (req, res) {
+router.get('/users', function (req, res) {
     res.render('user/users');
 });
 
