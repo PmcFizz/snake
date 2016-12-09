@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1ffcd878-1b75-487b-9446-1b4a876515f1" name="Default" comment="落霞与孤鹜齐飞">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/testfs.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/controllers/tmp/pl.json" afterPath="" />
+    <list default="true" id="1ffcd878-1b75-487b-9446-1b4a876515f1" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/user.js" afterPath="$PROJECT_DIR$/app/controllers/user.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/base.js" afterPath="$PROJECT_DIR$/routes/base.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/app/controllers/home.js" afterPath="$PROJECT_DIR$/app/controllers/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/index.js" afterPath="$PROJECT_DIR$/app/controllers/index.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -364,12 +359,20 @@
       <option name="presentableId" value="Default" />
       <updated>1481255748881</updated>
       <workItem from="1481255751684" duration="1472000" />
-      <workItem from="1481262628612" duration="6824000" />
+      <workItem from="1481262628612" duration="6939000" />
     </task>
+    <task id="LOCAL-00001" summary="落霞与孤鹜齐飞">
+      <created>1481269530625</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1481269530625</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8296000" />
+    <option name="totallyTimeSpent" value="8411000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
