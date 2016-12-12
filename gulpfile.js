@@ -3,13 +3,15 @@
  */
 var gulp = require('gulp');
 var rename = require('gulp-rename');
-var replace=require('gulp-replace');
+var replace = require('gulp-replace');
 var fs = require('fs');
+var del = require('del');
 var dirTree = [];
 var handDIR = 'app';
 var watchDir = 'app/models/*.js';
-var CONTROLLERS = 'app/controllers/';
-var PROXY = 'app/proxy/';
+var _CONTROLLERS = 'app/controllers/';
+var _PROXY = 'app/proxy/';
+var _MODELS = 'app/models/';
 /**
  * 获取某个目录树
  */
@@ -35,18 +37,18 @@ gulp.task('watchDir', function () {
         if (event.type == "added") {
             var path = event.path;
             var filename = getFileNameByPath(path);
-
             createControllerFile(filename);
             createProxyFile(filename);
+            modifyModal(filename);
+            console.log("hava created controller and proxy file");
         }
-        console.log(event);
         console.log("File" + event.path + 'was' + event.type + ', running tasks....');
     });
 });
 
 
 /**
- * gulp默认任务
+ * gulp default task
  */
 gulp.task("default", ['getFileTree', 'watchDir'], function () {
     console.log("开始gulp吧...");
@@ -87,37 +89,55 @@ function getFileNameByPath(path) {
 };
 
 /**
+ * modify the create file content
+ */
+function modifyModal(filename) {
+    gulp.src('app/factory/modelsmaster.js')
+        .pipe(rename({"basename": filename}))
+        .pipe(replace('waitreplace', filename))
+        .pipe(gulp.dest(_MODELS))
+}
+
+/**
  * 根据文件名创建Controller的文件
  * @param filename
  */
 function createControllerFile(filename) {
-    gulp.src('app/temp/controllersmaster.js')
+    gulp.src('app/factory/controllersmaster.js')
         .pipe(rename({"basename": filename}))
-        .pipe(replace('waitreplace',filename))
-        .pipe(replace('Waiterplace',upFirst(filename)))
-        .pipe(gulp.dest(CONTROLLERS));
+        .pipe(replace('waitreplace', filename))
+        .pipe(replace('Waitreplace', upFirst(filename)))
+        .pipe(gulp.dest(_CONTROLLERS));
 };
 
 /**
  * 根据文件名创建Proxy的对应文件
  */
 function createProxyFile(filename) {
-    gulp.src('app/temp/proxymaster.js')
+    gulp.src('app/factory/proxymaster.js')
         .pipe(rename({"basename": filename}))
-        .pipe(replace('waitreplace',filename))
-        .pipe(replace('Waiterplace',upFirst(filename)))
-        .pipe(gulp.dest(PROXY));
+        .pipe(replace('waitreplace', filename))
+        .pipe(replace('Waitreplace', upFirst(filename)))
+        .pipe(gulp.dest(_PROXY));
 };
 
 /**
  * 将字符串第一个字母大写
  */
-function  upFirst(str) {
-    if(str){
-       var strArr=str.split("");
-       var first=strArr[0].toUpperCase();
-       strArr[0]=first;
-       return strArr.join('');
+function upFirst(str) {
+    if (str) {
+        var strArr = str.split("");
+        var first = strArr[0].toUpperCase();
+        strArr[0] = first;
+        return strArr.join('');
     }
     return "";
 };
+gulp.task("deltemp", function () {
+    var delfileName = 'games.js';
+    del([
+        _CONTROLLERS + '' + delfileName,
+        _MODELS + '' + delfileName,
+        _PROXY + '' + delfileName
+    ])
+})

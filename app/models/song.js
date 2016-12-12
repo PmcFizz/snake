@@ -3,19 +3,19 @@
  * song
  */
 
-var mongoose=require('mongoose'),
-    schema=mongoose.Schema,
-    mongooseValidateFilter=require('mongoose-validatefilter'),
-    validate=new  mongooseValidateFilter.validate(),
-    filter=new mongooseValidateFilter.filter();
+var mongoose = require('mongoose'),
+    schema = mongoose.Schema,
+    mongooseValidateFilter = require('mongoose-validatefilter'),
+    validate = new mongooseValidateFilter.validate(),
+    filter = new mongooseValidateFilter.filter();
 
-var songSchema=new schema({
-    createUserId:{type:schema.types.ObjectId,ref:'user'}, //create user id
-    createDate:{type:Date,default:Date.now()},  //create Date
-    tag:[{type:String}], //tag
-    songer:String,//songer
-    timelong :Number, //song time long
-    playnum:Number, // paly number
+var songSchema = new schema({
+    createUserId: {type: schema.Types.ObjectId, ref: 'user'}, //create user id
+    createDate: {type: Date, default: Date.now()},  //create Date
+    tag: [{type: String}], //tag
+    songer: String,//songer
+    timelong: Number, //song time long
+    playnum: Number, // paly number
 });
 
 

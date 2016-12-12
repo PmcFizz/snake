@@ -13,7 +13,7 @@ mongoose.connect('mongodb://localhost/local', function (err) {
 require('./user');
 require('./plan');
 require('./song');
-require('./palylist');
+require('./playlist');
 exports.user = mongoose.model('user');
 exports.plan = mongoose.model('plan');
 exports.song = mongoose.model('song');

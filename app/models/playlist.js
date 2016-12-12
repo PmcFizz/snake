@@ -9,11 +9,11 @@ var mongoose = require('mongoose'),
     validate = new mongooseValidateFilter.validate(),
     filter = new mongooseValidateFilter.filter();
 
-var palylistSchema = new schema({
+var playlistSchema = new schema({
     songnum: Number,// songs number
-    createUserId: {type: schema.types.ObjectId, ref: 'user'}, //create users id
+    createUserId: {type: schema.Types.ObjectId, ref: 'user'}, //create users id
     createDate: {type: Date, default: Date.now()},  //create Date
-    songIds:[{type:schema.types.ObjectId,ref:'song'}]  //songs id  list
+    songIds: [{type: schema.Types.ObjectId, ref: 'song'}]  //songs id  list
 });
 
 //创建用户id不可为空
@@ -22,5 +22,5 @@ validate.add('createUserId', {
     msg: '创建用户id不可为空'
 });
 
-mongooseValidateFilter.validateFilter(palylistSchema, validate, filter);
-mongoose.model('palylist', palylistSchema);
+mongooseValidateFilter.validateFilter(playlistSchema, validate, filter);
+mongoose.model('playlist', playlistSchema);

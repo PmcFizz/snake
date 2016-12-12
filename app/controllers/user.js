@@ -24,6 +24,7 @@ router.get('/users', function (req, res) {
  */
 router.post('/adduser', function (req, res) {
     var params = req.body;
+    console.log("req.session"+req.session);
     user.addUser(params, function (error, returnData) {
         if (error) {
             return returnFAIL(res, error.message);
@@ -38,6 +39,7 @@ router.post('/adduser', function (req, res) {
  */
 router.post('/adduserlist', function (req, res) {
     var params = req.body;
+    console.log("req.session"+req.session);
     var nameArr = params.nameList.split(',');
     var i = 0;
     while (i < nameArr.length) {
