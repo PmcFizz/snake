@@ -3,8 +3,10 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var dbconfig = require('./app/config/dbconfig.json');
 var bodyParser = require('body-parser');
 var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 require('./global');
 var routes = require(BASEDIR + '/routes/routes');
 var compression = require('compression');
@@ -21,12 +23,15 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
-
 app.use(session({
-    secret: 'keyboard cat',
-    resave: false,
+    secret: dbconfig.cookieSecret,
+    key: 'sid',
+    store: new MongoStore({
+        url: dbconfig.dburl
+    }),
+    resave: true,
     saveUninitialized: true,
-    cookie: { secure: true }
+    cookie: {secure: true, maxAge: 60000}
 }))
 
 app.use(express.static(path.join(__dirname, 'public')));

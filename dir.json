@@ -1,1 +1,27 @@
-{"data":["app","app/controllers","app/controllers/games.js","app/controllers/index.js","app/controllers/plan.js","app/controllers/playlist.js","app/controllers/song.js","app/controllers/user.js","app/models","app/models/index.js","app/models/palylist.js","app/models/plan.js","app/models/song.js","app/models/user.js","app/proxy","app/proxy/games.js","app/proxy/index.js","app/proxy/plan.js","app/proxy/playlist.js","app/proxy/song.js","app/proxy/user.js","app/temp","app/temp/controllersmaster.js","app/temp/modelsmaster.js","app/temp/proxymaster.js"]}
+{
+  "data": [
+    "app",
+    "app/controllers",
+    "app/controllers/index.js",
+    "app/controllers/plan.js",
+    "app/controllers/playlist.js",
+    "app/controllers/song.js",
+    "app/controllers/user.js",
+    "app/factory",
+    "app/factory/controllersmaster.js",
+    "app/factory/modelsmaster.js",
+    "app/factory/proxymaster.js",
+    "app/models",
+    "app/models/index.js",
+    "app/models/plan.js",
+    "app/models/playlist.js",
+    "app/models/song.js",
+    "app/models/user.js",
+    "app/proxy",
+    "app/proxy/index.js",
+    "app/proxy/plan.js",
+    "app/proxy/playlist.js",
+    "app/proxy/song.js",
+    "app/proxy/user.js"
+  ]
+}

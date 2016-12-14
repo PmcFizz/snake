@@ -9,7 +9,20 @@ var async = require('async');
  * 添加用户页
  */
 router.get('/toadd', function (req, res) {
-    res.render('user/add');
+    console.log("req.session"+req.session.userid);
+    if(req.session.userid){
+        res.render('user/add');
+    }else{
+        res.render('user/login');
+    }
+
+});
+
+/**
+ * 登录页
+ */
+router.get('/tologin',function (req,res) {
+    res.render('user/login');
 });
 
 /**
@@ -17,6 +30,22 @@ router.get('/toadd', function (req, res) {
  */
 router.get('/users', function (req, res) {
     res.render('user/users');
+});
+
+/**
+ *用户登录
+ */
+router.post('/login',function (req,res) {
+    var params=req.body;
+    var query={"_id":"5845238d82bc6e2434e22d99"};
+    req.session.userid=query._id;
+    user.getUserDatasByQuery(query,{},function (error,returnData) {
+        if(error){
+            return returnFAIL(res,error.message);
+        }else{
+            return returnSUCCESS(res,req.session);
+        }
+    })
 });
 
 /**

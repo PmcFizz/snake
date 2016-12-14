@@ -2,7 +2,8 @@
  * Created by Fizz on 2016/12/5.
  */
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/local', function (err) {
+var dbconfig = require('../config/dbconfig.json');
+mongoose.connect(dbconfig.dburl, function (err) {
     if (err) {
         console.log(err.message);
     } else {
