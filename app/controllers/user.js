@@ -9,7 +9,7 @@ var async = require('async');
  * 添加用户页
  */
 router.get('/toadd', function (req, res) {
-    console.log("req.session"+req.session.userid);
+    console.log("req.session.userid"+req.session.userid);
     if(req.session.userid){
         res.render('user/add');
     }else{
@@ -53,7 +53,6 @@ router.post('/login',function (req,res) {
  */
 router.post('/adduser', function (req, res) {
     var params = req.body;
-    console.log("req.session"+req.session);
     user.addUser(params, function (error, returnData) {
         if (error) {
             return returnFAIL(res, error.message);
@@ -68,7 +67,6 @@ router.post('/adduser', function (req, res) {
  */
 router.post('/adduserlist', function (req, res) {
     var params = req.body;
-    console.log("req.session"+req.session);
     var nameArr = params.nameList.split(',');
     var i = 0;
     while (i < nameArr.length) {

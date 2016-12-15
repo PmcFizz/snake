@@ -22,19 +22,20 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(cookieParser());
-app.use(session({
-    secret: dbconfig.cookieSecret,
-    key: 'sid',
-    store: new MongoStore({
-        url: dbconfig.dburl
-    }),
-    resave: true,
-    saveUninitialized: true,
-    cookie: {secure: true, maxAge: 60000}
-}))
 
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser(dbconfig.cookieSecret));
+/**
+ * use session
+ */
+app.use(session({
+    secret: 'keyboard cat',
+    cookie: { maxAge: 60000 },
+    store: new MongoStore({
+        url: dbconfig.dburl
+    })
+}));
+
 app.use(compression());
 
 routes(app); //路由控制
