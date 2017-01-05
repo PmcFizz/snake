@@ -73,9 +73,66 @@
 // });
 
 
-var prepath='app/models/';
-var filetype='js';
-var filename='';
-console.log(path.indexOf(prepath)+prepath.length);
-filename=path.substring(path.indexOf(prepath)+prepath.length,path.length-filetype.length-1);
-console.log(filename);
+// var prepath='app/models/';
+// var filetype='js';
+// var filename='';
+// console.log(path.indexOf(prepath)+prepath.length);
+// filename=path.substring(path.indexOf(prepath)+prepath.length,path.length-filetype.length-1);
+// console.log(filename);
+
+//原始目录机构数据
+// {
+//     "data": [
+//     "app",
+//     "app/controllers",
+//     "app/controllers/index.js",
+//     "app/controllers/plan.js",
+//     "app/controllers/playlist.js",
+//     "app/controllers/song.js",
+//     "app/controllers/user.js",
+//     "app/factory",
+//     "app/factory/controllersmaster.js",
+//     "app/factory/modelsmaster.js",
+//     "app/factory/proxymaster.js",
+//     "app/models",
+//     "app/models/index.js",
+//     "app/models/plan.js",
+//     "app/models/playlist.js",
+//     "app/models/song.js",
+//     "app/models/user.js",
+//     "app/proxy",
+//     "app/proxy/index.js",
+//     "app/proxy/plan.js",
+//     "app/proxy/playlist.js",
+//     "app/proxy/song.js",
+//     "app/proxy/user.js"
+// ]
+// }
+
+// 需要的数据结构是
+// var res = {
+//     "data": [{
+//         name: "app",
+//         open: true,
+//         children: [{
+//             name: "controllers",
+//             open: true,
+//             children: [{name: "index.js"}, {name: "plan.js"}, {name: "playlist.js"}, {name: "song.js"}, {name: "user.js"}]
+//         }, {
+//             name: "factory",
+//             children: [{name: "controllersmaster.js"}, {name: "modelsmaster.js"}, {name: "proxymaster.js"}]
+//         }, {
+//             name: "models",
+//             children: [{name: "index.js"}, {name: "plan.js"}, {name: "playlist.js"}, {name: "song.js"}, {name: "song.js"}]
+//         }, {
+//             name: "proxy",
+//             children: [{name: "index.js"}, {name: "plan.js"}, {name: "playlist.js"}, {name: "song.js"}, {name: "user.js"}]
+//         }]
+//     }]
+// }
+
+
+var dirjson = require('./dir.json');
+console.log(dirjson);
+
+

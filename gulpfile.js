@@ -2,6 +2,8 @@
  * Created by Administrator on 2016/12/9.
  */
 var gulp = require('gulp');
+var browserSync = require("browser-sync");
+var watch = require("gulp-watch");
 var rename = require('gulp-rename');
 var replace = require('gulp-replace');
 var fs = require('fs');
@@ -46,6 +48,16 @@ gulp.task('watchDir', function () {
     });
 });
 
+/**
+ *文件修改同步浏览器
+ */
+gulp.task("reload", function () {
+    browserSync.init({
+        server: {baseDir: "./"}
+    });
+    gulp.watch("./views/**/*",browserSync.reload);
+    gulp.watch("./public/**/*",browserSync.reload);
+})
 
 /**
  * gulp default task

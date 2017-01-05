@@ -22,4 +22,9 @@ router.get('/home',function (req,res) {
     res.render('my');
 });
 
+//进入zTrr实例页面
+router.get('/ztree',function (req,res) {
+    res.render('zTree/index');
+})
+
 module.exports = router;

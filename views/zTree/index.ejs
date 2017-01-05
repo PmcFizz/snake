@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+    <title>view/index.html</title>
+    <link rel="stylesheet" href="/javascripts/plugins/zTree/css/zTreeStyle/zTreeStyle.css"/>
+    <link rel="stylesheet" href="/javascripts/plugins/zTree/css/demo.css"/>
+    <style>
+        div.content_wrap {
+            width: 100%;
+        }
+
+        div.content_wrap div.left {
+            width: 100%;
+        }
+
+        ul.ztree {
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Fizz WeChat Contacts</h1>
+<div class="content_wrap">
+    <div class="zTreeDemoBackground left">
+        <ul id="treeDemo" class="ztree"></ul>
+    </div>
+</div>
+<script type="text/javascript" src="/javascripts/plugins/jquery.min.js"></script>
+<script type="text/javascript" src="/javascripts/plugins/zTree/js/jquery.ztree.all.min.js"></script>
+<script>
+
+    var setting = {};
+    var zNodes = [{
+        name: "pNode 01",
+        open: true,
+        children: [{
+            name: "pNode 11",
+            children: [{
+                name: "leaf node 111"
+            }, {
+                name: "leaf node 112"
+            }, {
+                name: "leaf node 113"
+            }, {
+                name: "leaf node 114"
+            }]
+        }, {
+            name: "pNode 12",
+            children: [{
+                name: "leaf node 121"
+            }, {
+                name: "leaf node 122"
+            }, {
+                name: "leaf node 123"
+            }, {
+                name: "leaf node 124"
+            }]
+        }, {
+            name: "pNode 13 -no child",
+            isParent: true
+        }]
+    }, {
+        name: "pNode 02",
+        children: [{
+            name: "pNode 21",
+            open: true,
+            children: [{
+                name: "leaf node 211"
+            }, {
+                name: "leaf node 212"
+            }, {
+                name: "leaf node 213"
+            }, {
+                name: "leaf node 214"
+            }]
+        }, {
+            name: "pNode 22",
+            children: [{
+                name: "leaf node 221"
+            }, {
+                name: "leaf node 222"
+            }, {
+                name: "leaf node 223"
+            }, {
+                name: "leaf node 224"
+            }]
+        }, {
+            name: "pNode 23",
+            children: [{
+                name: "leaf node 231"
+            }, {
+                name: "leaf node 232"
+            }, {
+                name: "leaf node 233"
+            }, {
+                name: "leaf node 234"
+            }]
+        }]
+    }, {
+        name: "pNode 3 -no child",
+        isParent: true
+    }];
+
+    //    function getData(){
+    //        $.ajax({
+    //            type:"get",
+    //            url:"http://127.0.0.1:8020/FizzTeacher/js/WeChat_Contacts.json",
+    //            dataType:"json",
+    //            success:function(res){
+    var res = {
+        "data": [{"name": "A", "children": [{"name": "Afra"}]}, {
+            "name": "C",
+            "children": [{"name": "春夏"}, {"name": "陈志彬"}, {"name": "陈伟"}]
+        }, {"name": "F", "children": [{"name": "Fizz"}, {"name": "冯范敏"}]}, {
+            "name": "G",
+            "children": [{"name": "郭徐斌"}]
+        }, {"name": "H", "children": [{"name": "侯凤霞"}, {"name": "盒子张侃"}, {"name": "何玫"}, {"name": "韩露"}]}, {
+            "name": "J",
+            "children": [{"name": "洁猫"}, {"name": "姐夫"}, {"name": "娇娇"}]
+        }, {
+            "name": "L",
+            "children": [{"name": "罗龙"}, {"name": "Lulu^ω^"}, {"name": "刘巧"}, {"name": "刘姐"}, {"name": "李慧芳"}, {"name": "梨涡浅笑丶"}, {"name": "蕾蕾"}, {"name": "L"}]
+        }, {"name": "M", "children": [{"name": "梦娜"}, {"name": "梦超"}, {"name": "MassSendApp"}]}, {
+            "name": "P",
+            "children": [{"name": "普刚"}, {"name": "鹏飞哥"}, {"name": "潘天雁"}]
+        }, {"name": "R", "children": [{"name": "人事"}]}, {
+            "name": "S",
+            "children": [{"name": "孙艳萍"}, {"name": "帅赓"}]
+        }, {"name": "T", "children": [{"name": "天朝汉子夏雨荷 i"}, {"name": "谭一莲"}, {"name": "唐政"}]}, {
+            "name": "W",
+            "children": [{"name": "我叫姚洲"}, {"name": "File Transfer"}, {"name": "WeChat Team"}, {"name": "王一正"}, {"name": "王新利"}, {"name": "王巧"}, {"name": "王辉"}, {"name": "王海云"}]
+        }, {"name": "X", "children": [{"name": "徐思伟"}, {"name": "许富超"}, {"name": "肖传毅"}]}, {
+            "name": "Y",
+            "children": [{"name": "叶紫"}, {"name": "严晓静"}]
+        }, {"name": "Z", "children": [{"name": "紫藤"}, {"name": "张慧君"}]}]
+    }
+
+    $.fn.zTree.init($("#treeDemo"), setting, res.data);
+    //                //handleData(res.data);
+    //            }
+    //        });
+    //    };
+
+    function handleData(data) {
+        var retuList = [];
+        var pIds = [];
+        for (var i = data.length; i--;) {
+            var item = data[i];
+            if (pIds.indexOf(item.pId) > -1) {
+                var pIdObj = {};
+                if (retuList.length > 0) {
+                    for (var j = retuList.length; j--;) {
+                        if (retuList[j].name == item.pId) {
+                            retuList[j].children.push({"name": item.name});
+                        }
+                    }
+                }
+            } else {
+                retuList.push({"name": item.pId, "children": [{"name": item.name}]});
+                pIds.push(item.pId);
+            }
+        }
+        zNodes = retuList;
+        $.fn.zTree.init($("#treeDemo"), setting, zNodes);
+    }
+
+    $(document).ready(function () {
+        getData();
+    })
+</script>
+</body>
+
+</html>
