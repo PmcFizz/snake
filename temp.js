@@ -133,6 +133,40 @@
 
 
 var dirjson = require('./dir.json');
-console.log(dirjson);
+var dirarr=dirjson.data;
+var finallyArr=[];
+
+//转换数据结构
+function handArr(arr) {
+    var len=arr.length;
+    for(var i=0;i<len;i++){
+        var item=arr[i];
+        var itemArr=item.split("/");
+        if(itemArr.length>1){
+            var fronEle=findFronEle(itemArr[0],finallyArr);
+            finallyArr[fronEle].children.push(itemArr[1]);
+
+        }else{
+            var obj={name:item,children:[]}
+            finallyArr.push(obj);
+        }
+    }
+}
+
+//找到前一个节点
+function  findFronEle(str,arr) {
+    var len=arr.length;
+    for(var i=0;i<len;i++){
+        var item=arr[i];
+        if(item.name==str){
+            return i;
+        }
+    }
+    return -1;
+}
+
+handArr(dirarr);
+
+console.log(finallyArr);
 
 

@@ -25,6 +25,16 @@ router.get('/home',function (req,res) {
 //进入zTrr实例页面
 router.get('/ztree',function (req,res) {
     res.render('zTree/index');
+});
+
+//进入七巧板页面
+router.get('/tangrampuzzle',function(req,res){
+    res.render('tangrampuzzle/index');
+});
+
+//进入threedubmedia 事例
+router.get('/threedubmedia',function(req,res){
+    res.render('tangrampuzzle/pluginindex')
 })
 
 module.exports = router;

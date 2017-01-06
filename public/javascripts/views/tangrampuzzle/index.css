@@ -1,0 +1,10 @@
+body{margin: auto 0;position: relative}
+/*#puzzlecontain{width:100px;height: 100px;margin:0 auto;background-color: #8BC34A;position:relative}*/
+#puzzlecontain div{cursor: move;margin-bottom: 20px}
+#one{width:50px;height: 25px;transform:skew(45deg);background-color: #ff7300;}
+#two{width: 0;height: 0;border-top:50px solid #58c10c;border-left:50px solid transparent; border-right:50px solid transparent;}
+#three{width: 0;height: 0;border-top:25px solid #1353ad;border-left: 25px solid transparent;border-right:25px solid transparent;}
+#four{width: 0;height: 0;border-top:50px solid #df32a5;border-left:50px solid transparent;border-right:50px solid transparent;}
+#five{width: 0;height: 0;border-top:35.33px solid #01b0f1;border-left: 35.33px solid transparent;border-right:35.33px solid transparent;}
+#six{width: 35.33px;height:35.33px;background-color: #ffac35;}
+#seven{width:0;height:0;border-top: 25px solid #cd0100;border-left: 25px solid transparent; border-right:25px solid transparent;}
