@@ -27,6 +27,7 @@
     "mongoose-validatefilter": "0.0.18",
     "morgan": "~1.7.0",
     "npm": "^4.0.3",
+    "opn": "^5.1.0",
     "serve-favicon": "~2.3.0"
   }
 }

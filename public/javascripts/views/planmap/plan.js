@@ -9,7 +9,7 @@
             type: "POST",
             url: '/plan/queryplans',
             data:{
-                _id:'5847a3c1da759837ac58aa67',
+                // _id:'5847a3c1da759837ac58aa67',
             },
             dataType: "json",
             success: function (res) {
