@@ -5,17 +5,22 @@ var router = require('express').Router();
 var plan=require(PROXY).plan;
 
 //添加计划页面
-router.get('/addpage', function (req, res) {
-    res.render('planmap/add');
+router.get('/add', function (req, res) {
+    res.render('plan/add');
 });
 
 //计划列表页面
 router.get('/plans', function (req, res) {
-    res.render('planmap/plan')
+    res.render('plan/plans')
 });
 
+//编辑计划页面
+router.get('/edit',function(req,res){
+    res.render('plan/edit')
+})
+
 //添加计划api
-router.post('/create', function (req, res) {
+router.post('/add-post', function (req, res) {
     var params = req.body;
     var newPlan ={};
     var planArr=params.plancontent.split(",");
@@ -41,7 +46,7 @@ router.post('/create', function (req, res) {
 });
 
 //查询计划api
-router.post('/queryplans', function (req, res) {
+router.post('/query-post', function (req, res) {
     var params = req.body;
     plan.queryPlan(params,{},function (error,returenData) {
         if(error){
@@ -51,5 +56,18 @@ router.post('/queryplans', function (req, res) {
         }
     });
 });
+
+//编辑计划api
+router.post('/edit-post',function(req,res){
+    var params=req.body;
+    plan.editPlan(params,{},function(err,data){
+        if(error){
+            return returnFAIL(res,err.message);
+        }else{
+            return returnSUCCESS(res,data);
+        }
+    })
+})
+
 
 module.exports = router;
