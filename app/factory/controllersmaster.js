@@ -8,7 +8,7 @@ var async = require('async');
 /**
  * to add waitreplace page
  */
-router.get('/toadd', function (req, res) {
+router.get('/add', function (req, res) {
     res.render('waitreplace/add');
 });
 
@@ -20,9 +20,16 @@ router.get('/waitreplaces', function (req, res) {
 });
 
 /**
+ * to waitreplace list page
+ */
+router.get('/edit', function (req, res) {
+    res.render('waitreplace/edit');
+});
+
+/**
  * add one waitreplace api
  */
-router.post('/addwaitreplace', function (req, res) {
+router.post('/add-post', function (req, res) {
     var params = req.body;
     waitreplace.addOneWaitreplace(params, function (error, returnData) {
         if (error) {
@@ -58,7 +65,8 @@ router.post('/addwaitreplacelist', function (req, res) {
  */
 router.post('/query', function (req, res) {
     var params = req.body;
-    waitreplace.queryWaitreplaces(params, {}, function (error, returnData) {
+    var option = {};
+    waitreplace.queryWaitreplaces(params, option, function (error, returnData) {
         if (error) {
             return returnFAIL(res, error.message);
         } else {
@@ -103,10 +111,10 @@ router.post('/queryByDataTable', function (req, res) {
 
     ], function (err, result) {
         console.log(err);
-        var dataTableModel={
-            recordsFiltered:result[0],
-            recordsTotal:result[0],
-            data:result[1]
+        var dataTableModel = {
+            recordsFiltered: result[0],
+            recordsTotal: result[0],
+            data: result[1]
         };
         return res.json(dataTableModel);
     });

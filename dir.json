@@ -1,6 +1,8 @@
 {
   "data": [
     "app",
+    "app/config",
+    "app/config/dbconfig.json",
     "app/controllers",
     "app/controllers/index.js",
     "app/controllers/plan.js",
