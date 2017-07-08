@@ -19,7 +19,7 @@
             },
             success:function (res) {
                 if(res.code==200){
-                   // alert("提交成功!");
+                   console.log("提交成功");
                 }else{
                     alert(res.msg);
                 }

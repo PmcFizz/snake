@@ -1,4 +1,4 @@
 {
-  "dburl": "mongodb://localhost/local",
+  "dburl": "mongodb://localhost/myname",
   "cookieSecret": "snake"
 }
