@@ -8,7 +8,7 @@ var async = require('async');
 /**
  * 添加用户页
  */
-router.get('/toadd', function (req, res) {
+router.get('/add', function (req, res) {
     console.log("req.session.userid"+req.session.userid);
     if(req.session.userid){
         res.render('user/add');
@@ -21,8 +21,8 @@ router.get('/toadd', function (req, res) {
 /**
  * 登录页
  */
-router.get('/tologin',function (req,res) {
-    res.render('user/login');
+router.get('/edit',function (req,res) {
+    res.render('user/edit');
 });
 
 /**
@@ -51,7 +51,7 @@ router.post('/login',function (req,res) {
 /**
  * 添加一个新用户
  */
-router.post('/adduser', function (req, res) {
+router.post('/add-post', function (req, res) {
     var params = req.body;
     user.addUser(params, function (error, returnData) {
         if (error) {
@@ -65,7 +65,7 @@ router.post('/adduser', function (req, res) {
 /**
  *批量添加用户
  */
-router.post('/adduserlist', function (req, res) {
+router.post('/addlist-post', function (req, res) {
     var params = req.body;
     var nameArr = params.nameList.split(',');
     var i = 0;
@@ -85,7 +85,7 @@ router.post('/adduserlist', function (req, res) {
 /**
  * 查询用户
  */
-router.post('/query', function (req, res) {
+router.post('/query-post', function (req, res) {
     var params = req.body;
     user.getUserDatasByQuery(params, {}, function (error, returnData) {
         if (error) {
@@ -140,30 +140,6 @@ router.post('/queryByDataTable', function (req, res) {
         };
         return res.json(dataTableModel);
     });
-
-
-    /**
-     * 查询总数
-     */
-    // user.countUserData(query, function (error, returnData) {
-    //     if (error) {
-    //         return returnFAIL(res, error.message);
-    //     } else {
-    //         resData.total = returnData;
-    //     }
-    // });
-
-    /**
-     * 分页查询
-     */
-    // user.queryUserByPage(query, opt, function (error, returnData) {
-    //     if (error) {
-    //         return returnFAIL(res, error.message);
-    //     } else {
-    //         return returnSUCCESS(res, returnData);
-    //     }
-    // })
-
 });
 
 module.exports = router;

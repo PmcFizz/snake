@@ -54,8 +54,8 @@ exports.countWaitreplace = function (query, cb) {
  * @param query : waitreplace.field
  * @param cb : after deletone exec callback
  */
-exports.deleteOneWaitreplace=function (query,cb) {
-    waitreplace.removeOne(query,cb);
+exports.delOneWaitreplace = function (query, cb) {
+    waitreplace.removeOne(query, cb);
 };
 
 /**
@@ -64,6 +64,6 @@ exports.deleteOneWaitreplace=function (query,cb) {
  * @param updateData :wait update data
  * @param cb : after updateone exec callback
  */
-exports.updateOneWaitreplace=function (query,updateData,cb) {
-    waitreplace.updateOne(query,updateData,cb);
+exports.updateOneWaitreplace = function (query, updateData, cb) {
+    waitreplace.updateOne(query, updateData, cb);
 };

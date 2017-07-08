@@ -7,4 +7,9 @@ module.exports=function(app){
      */
     require('./base')(app);
 
+    /**
+     *个人私人路由
+     */
+    require('./private')(app);
+
 };

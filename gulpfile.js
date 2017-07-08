@@ -38,10 +38,12 @@ gulp.task('watchDir', function () {
     gulp.watch(watchDir, function (event) {
         if (event.type == "added") {
             var path = event.path;
+            // console.log("filename"+path.substring(path.lastIndexOf("\\")+1,path.indexOf(".")))
             var filename = getFileNameByPath(path);
-            createControllerFile(filename);
-            createProxyFile(filename);
-            modifyModal(filename);
+            createControllerFile(filename); //创建controller文件
+            createProxyFile(filename);  //创建proxy文件
+            modifyModal(filename);      //修改modal文件
+            handleViewFolder(filename); //处理view文件夹
             console.log("hava created controller and proxy file");
         }
         console.log("File" + event.path + 'was' + event.type + ', running tasks....');
@@ -55,8 +57,8 @@ gulp.task("reload", function () {
     browserSync.init({
         server: {baseDir: "./"}
     });
-    gulp.watch("./views/**/*",browserSync.reload);
-    gulp.watch("./public/**/*",browserSync.reload);
+    gulp.watch("./views/**/*", browserSync.reload);
+    gulp.watch("./public/**/*", browserSync.reload);
 })
 
 /**
@@ -91,7 +93,7 @@ function getFileTree(path) {
  * @param path
  */
 function getFileNameByPath(path) {
-    var prepath = 'app/models/';
+    var prepath = 'app\\models\\';
     var filetype = 'js';
     var filename = '';
     var startIndex = path.indexOf(prepath) + prepath.length;
@@ -134,6 +136,14 @@ function createProxyFile(filename) {
 };
 
 /**
+ *根据文件名创建对应的文件夹和文件
+ */
+function handleViewFolder(filename){
+    gulp.src('view/factory')
+        .dest("view/"+filename);
+}
+
+/**
  * 将字符串第一个字母大写
  */
 function upFirst(str) {
@@ -145,8 +155,12 @@ function upFirst(str) {
     }
     return "";
 };
+
+/**
+ * 删除临时文件
+ */
 gulp.task("deltemp", function () {
-    var delfileName = 'games.js';
+    var delfileName = 'book.js';
     del([
         _CONTROLLERS + '' + delfileName,
         _MODELS + '' + delfileName,
