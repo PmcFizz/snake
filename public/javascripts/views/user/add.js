@@ -5,11 +5,15 @@
     $("#adduserbtn").click(clickAddUserBtn);
     function clickAddUserBtn() {
         var name=$("#name").val();
+        var age=$("#age").val();
+        var gender=$("#gender").val();
         $.ajax({
             type:"post",
-            url:'/user/adduserlist',
+            url:'/user/add-post',
             data:{
-                nameList:name
+                name:name,
+                age:age,
+                gender:gender
             },
             dataType:"json",
             success:function (res) {

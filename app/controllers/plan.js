@@ -67,7 +67,7 @@ router.post('/edit-post',function(req,res){
             return returnSUCCESS(res,data);
         }
     })
-})
+});
 
 
 module.exports = router;

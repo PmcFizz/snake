@@ -5,7 +5,7 @@
     $("#loginbtn").click(clickLoginBtn);
     function clickLoginBtn() {
         var name=$("#username").val();
-        var pwd=$("pwd").val();
+        var pwd=$("#pwd").val();
         $.ajax({
             type:'POST',
             url:'/user/login',

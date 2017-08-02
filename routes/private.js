@@ -1,4 +1,4 @@
-module.export=function(app){
+module.exports=function(app){
 
 	//用户模块
 	app.use('/user',require(CONTROLLERS+'/user'));
@@ -7,21 +7,18 @@ module.export=function(app){
 	app.use('/plan',require(CONTROLLERS+'/plan'));
 
 	//极客模块
-	app.use('/geek',require(CONTROLLERS+'/geek'));
+	// app.use('/geek',require(CONTROLLERS+'/geek'));
 
 	//工作模块
-	app.use('/work',require(CONTROLLERS+'/work'));
+	// app.use('/work',require(CONTROLLERS+'/work'));
 
 	//学习模块
-	app.use('/study',require(CONTROLLERS+'/study'));
+	// app.use('/study',require(CONTROLLERS+'/study'));
 
 	//书籍模块
-	app.use('/book',require(CONTROLLERS+'/books'));
+	// app.use('/book',require(CONTROLLERS+'/books'));
 
 	//朋友模块
-	app.use('/friend',require(CONTROLLERS+'/friend'));
-
-
-
+	// app.use('/friend',require(CONTROLLERS+'/friend'));
 	
 }
