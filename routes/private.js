@@ -6,6 +6,12 @@ module.exports=function(app){
 	//计划模块
 	app.use('/plan',require(CONTROLLERS+'/plan'));
 
+    //兴趣模块
+    app.use('/interest',require(CONTROLLERS+'/interest'));
+
+	//任务模块
+	app.use('/task',require(CONTROLLERS+'/task'));
+
 	//极客模块
 	// app.use('/geek',require(CONTROLLERS+'/geek'));
 
