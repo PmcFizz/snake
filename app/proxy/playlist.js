@@ -1,46 +1,69 @@
 /**
- * Created by fizz on 16-12-10.
+ * Created by Fizz on 2016/12/5.
  */
-
-var playlist=require(MODELS).playlist;
+var playlist = require(MODELS).playlist;
 
 /**
- * 新增一个歌单
- * @param newplaylist
- * @param callback
+ * @desc  add new playlist
+ * @param newPlaylist : wait added playlist
+ * @param cb : after add exec callback
  */
-exports.addPlaylist=function(newplaylist,callback){
-    playlist.createOne(newplaylist,callback);
+exports.addOnePlaylist = function (newPlaylist, cb) {
+    playlist.createOne(newPlaylist, cb);
 };
 
-
 /**
- *根据query opt 查询符合条件的歌单
+ * @desc  search playlist by query and opt
+ * @param query : playlist.field
+ * @param opt : opt.skip number;opt.limit number
+ * @param cb : after search exec callback
  */
-exports.getPlaylistDatasByQuery=function(query,opt,callback){
+exports.queryPlaylists = function (query, opt, cb) {
     playlist
-        .find(query,opt)
-        .exec(callback);
+        .find(query, opt)
+        .exec(cb);
 };
 
 /**
- * 分页查询
+ * @desc  search playlist by page
+ * @param query : playlist.field
+ * @param opt : opt.skip number;opt.limit number;
+ * @param cb : after search exec callback
  */
-exports.queryPlaylistByPage=function (query,opt,cb) {
+exports.queryPlaylistByPage = function (query, opt, cb) {
     playlist
         .find(query)
         .skip(opt.skip)
         .limit(opt.limit)
-        .sort({createDate:-1})
         .exec(cb)
-}
+};
 
 /**
- * 查询总数
+ * @desc  search count
+ * @param query : playlist.field
+ * @param cb : after search exec callback
  */
-exports.countPlaylistData=function (query,cb) {
+exports.countPlaylist = function (query, cb) {
     playlist
         .count(query)
         .exec(cb)
-}
+};
 
+/**
+ * @desc  delet one playlist  by query get
+ * @param query : playlist.field
+ * @param cb : after deletone exec callback
+ */
+exports.delOnePlaylist = function (query, cb) {
+    playlist.removeOne(query, cb);
+};
+
+/**
+ * @desc  update one playlist by query
+ * @param query : playlist.field
+ * @param updateData :wait update data
+ * @param cb : after updateone exec callback
+ */
+exports.updateOnePlaylist = function (query, updateData, cb) {
+    playlist.updateOne(query, updateData, cb);
+};

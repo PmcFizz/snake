@@ -9,33 +9,36 @@ var async = require('async');
  * 添加用户页
  */
 router.get('/add', function (req, res) {
-    console.log("req.session.userid"+req.session.userid);
-    // if(req.session.userid){
-        res.render('user/add');
-    // }else{
-    //     res.render('user/login');
-    // }
-
+      res.render('user/add');
 });
 
 /**
- * 登录页
+ * 编辑用户
  */
 router.get('/edit',function (req,res) {
     res.render('user/edit');
 });
 
 /**
- * 用户列表页
+ * 编辑用户页
  */
 router.get('/users', function (req, res) {
     res.render('user/users');
 });
 
+
+/**
+ *用户登录页
+ */
+router.post('/login',function (req,res) {
+    res.render('user/login');
+});
+
+
 /**
  *用户登录
  */
-router.post('/login',function (req,res) {
+router.post('/login-post',function (req,res) {
     var params=req.body;
     var query={"_id":"5845238d82bc6e2434e22d99"};
     req.session.userid=query._id;

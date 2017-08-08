@@ -1,0 +1,26 @@
+{
+  "name": "my",
+  "description": "",
+  "main": "",
+  "authors": [
+    "FizzPang <pangmc@sctek.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/PmcFizz/snake",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "jquery": "^3.2.1",
+    "z-tree.v3": "^3.5.29",
+    "datatables": "datatable#^1.10.15",
+    "animate.css": "^3.5.2",
+    "vue": "^2.4.2",
+    "angular": "angularjs#^1.6.5"
+  }
+}

@@ -17,7 +17,7 @@ router.get('/plans', function (req, res) {
 //编辑计划页面
 router.get('/edit',function(req,res){
     res.render('plan/edit')
-})
+});
 
 //添加计划api
 router.post('/add-post', function (req, res) {
