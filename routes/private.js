@@ -22,7 +22,7 @@ module.exports=function(app){
 	// app.use('/study',require(CONTROLLERS+'/study'));
 
 	//书籍模块
-	// app.use('/book',require(CONTROLLERS+'/books'));
+	app.use('/book',require(CONTROLLERS+'/book'));
 
 	//朋友模块
 	// app.use('/friend',require(CONTROLLERS+'/friend'));

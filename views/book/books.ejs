@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>书籍列表</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h4>书籍列表</h4>
+        </div>
+        <div class="panel-body">
+            <table class="table table-bordered text-center"  cellspacing="0" id="books" width="100%">
+                <thead>
+                   <tr class="text-center">
+                       <th width="30%" class="text-center">id</th>
+                       <th width="30%" class="text-center">name</th>
+                       <th width="30%" class="text-center">status</th>
+                   </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="/libs/jquery/dist/jquery.min.js"></script>
+<script src="/libs/datatables/media/js/jquery.dataTables.min.js"></script>
+<script src="/libs/datatables/media/js/dataTables.bootstrap.min.js"></script>
+<script src="/javascripts/views/book/books.js"></script>
+
+</body>
+</html>
