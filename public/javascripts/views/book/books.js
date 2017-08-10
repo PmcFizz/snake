@@ -29,10 +29,26 @@
                         str="已结束"
                     }
                     $(nTd).html(str);
-                 }}
+                 }},
+                {data:'_id',
+                'fnCreatedCell':function (nTd,sData,oData) {
+                    var str='<button class="btn btn-warning btn-sm J_delOne" data-id="'+sData+'">删除</button>';
+                        str=str+'<a class="btn btn-sm btn-info" href="/book/edit?id='+sData+'">修改</a>';
+                    $(nTd).html(str);
+                }}
                 ]
         })
-
     });
+    
+    $(document).on("click",".J_delOne",function (even) {
+        var id=even.target.dataset.id;
+        $.post('/book/del-post',{_id:id},function (res) {
+            if(res.code===200){
+                $("#books").DataTable().page('first').draw(false);
+            }else{
+                alert(res.errmsg);
+            }
+        },'json');
+    })
 
 })();

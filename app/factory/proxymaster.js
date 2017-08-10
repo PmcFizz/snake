@@ -33,8 +33,8 @@ exports.queryWaitreplaces = function (query, opt, cb) {
 exports.queryWaitreplaceByPage = function (query, opt, cb) {
     waitreplace
         .find(query)
-        .skip(opt.skip)
-        .limit(opt.limit)
+        .skip(parseInt(opt.skip,10))
+        .limit(parseInt(opt.limit,10))
         .exec(cb)
 };
 
@@ -48,6 +48,17 @@ exports.countWaitreplace = function (query, cb) {
         .count(query)
         .exec(cb)
 };
+
+/**
+ * @desc  find one waitreplace by query
+ * @param query : _id
+ * @param updateData :wait update data
+ * @param cb : after updateone exec callback
+ */
+exports.findOneWaitreplace = function (id, data, cb) {
+    waitreplace.findOne({_id:id}, data, cb);
+};
+
 
 /**
  * @desc  delet one waitreplace  by query get

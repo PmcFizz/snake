@@ -121,4 +121,35 @@ router.post('/queryByDataTable', function (req, res) {
 
 });
 
+/**
+ * 删除一条记录
+ */
+router.post('/del-post',function (req,res) {
+    var params=req.body;
+    book.delOneBook({_id:params._id},function (err,resData) {
+        if(err){
+            return returnFAIL(res,err);
+        }else{
+            return returnSUCCESS(res,resData)
+        }
+    })
+});
+
+/**
+ * 更新一条记录
+ */
+router.post('/update-post',function (req,res) {
+    var params=req.body;
+    var _id=params._id;
+    delete params._id;
+    book.updateOneBook({_id:_id},{$set :params},function (err,resData) {
+        if(err){
+            return returnFAIL(res,err.message);
+        }else{
+            return returnSUCCESS(res,resData)
+        }
+
+    });
+})
+
 module.exports = router;

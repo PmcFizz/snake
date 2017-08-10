@@ -9,7 +9,11 @@ var async = require('async');
  * 添加用户页
  */
 router.get('/add', function (req, res) {
-      res.render('user/add');
+     if(req.cookies.get("userid")){
+         res.render('user/add');
+     }else{
+         res.render('user/login');
+     }
 });
 
 /**
@@ -39,16 +43,8 @@ router.post('/login',function (req,res) {
  *用户登录
  */
 router.post('/login-post',function (req,res) {
-    var params=req.body;
-    var query={"_id":"5845238d82bc6e2434e22d99"};
-    req.session.userid=query._id;
-    user.getUserDatasByQuery(query,{},function (error,returnData) {
-        if(error){
-            return returnFAIL(res,error.message);
-        }else{
-            return returnSUCCESS(res,req.session);
-        }
-    })
+    res.cookie('userid', '5981838b20c3c70984544551', { expires: new Date(Date.now() + 900000), httpOnly: true });
+    return returnSUCCESS(res,"12");
 });
 
 /**

@@ -41,48 +41,12 @@ router.post('/add-post', function (req, res) {
 });
 
 /**
- *add many waitreplace api
- */
-router.post('/addwaitreplacelist', function (req, res) {
-    var params = req.body;
-    var nameArr = params.nameList.split(',');
-    var i = 0;
-    while (i < nameArr.length) {
-        waitreplace.addOneWaitreplace({'name': nameArr[i]}, function (error) {
-            if (error) {
-                console.error(error.message);
-            } else {
-                console.log("添加成功!!");
-            }
-        });
-        i++;
-    }
-    return returnSUCCESS(res, "");
-});
-
-/**
- * query waitreplace data
- */
-router.post('/query', function (req, res) {
-    var params = req.body;
-    var option = {};
-    waitreplace.queryWaitreplaces(params, option, function (error, returnData) {
-        if (error) {
-            return returnFAIL(res, error.message);
-        } else {
-            return returnSUCCESS(res, returnData);
-        }
-    });
-});
-
-/**
  * use dateTable query waitreplace data
  */
 router.post('/queryByDataTable', function (req, res) {
     var params = req.body;
     var query = {};
     var opt = {};
-    var resData = {};
     if (params.name) {
         query.name = params.name;
     }
@@ -118,7 +82,69 @@ router.post('/queryByDataTable', function (req, res) {
         };
         return res.json(dataTableModel);
     });
-
 });
+
+/**
+ * del one data
+ */
+router.post('/del-post', function (req, res) {
+    var params = req.body;
+    var id = params._id ? params._id : params.id;
+    waitreplace.delOneWaitreplace({_id: id}, function (err, resData) {
+        if (err) {
+            return returnFAIL(res, err.message);
+        } else {
+            return returnSUCCESS(res, resData);
+        }
+    })
+});
+
+/**
+ * query only one  waitreplace data
+ */
+router.post('/queryById', function (req, res) {
+    var params = req.body;
+    var id = params._id ? params._id : params.id;
+    waitreplace.findOneWaitreplace(id, function (error, returnData) {
+        if (error) {
+            return returnFAIL(res, error.message);
+        } else {
+            return returnSUCCESS(res, returnData);
+        }
+    });
+});
+
+/**
+ * query waitreplace data
+ */
+router.post('/query', function (req, res) {
+    var params = req.body;
+    var option = {};
+    waitreplace.queryWaitreplaces(params, option, function (error, returnData) {
+        if (error) {
+            return returnFAIL(res, error.message);
+        } else {
+            return returnSUCCESS(res, returnData);
+        }
+    });
+});
+
+/**
+ * update one waitreplace data
+ */
+router.post('/update-post', function (req, res) {
+    var params = req.body;
+    var id = params._id ? params._id : params.id;
+    delete  params._id;
+    delete  params.id;
+    waitreplace.queryWaitreplaces({_id:id}, {$set:params}, function (error, returnData) {
+        if (error) {
+            return returnFAIL(res, error.message);
+        } else {
+            return returnSUCCESS(res, returnData);
+        }
+    });
+});
+
 
 module.exports = router;

@@ -1,19 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>修改用户</title>
+    <title>修改书籍</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
 </head>
 <body>
-<h1>修改用户</h1>
-<p>Welcome to My ejs wolrd</p>
-<input id="name" placeholder="请输入用户名称"/>
-<input id="age" placeholder="请输入用户年龄"/>
-<input id="gender" placeholder="请输入用户性别"/>
-<button id="edituserbtn">确定修改</button>
+<div class="container">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h4>修改书籍</h4>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" role="form" id="bookform">
+                <div class="form-group">
+                    <label for="bookname" class="control-label col-md-4">名称:</label>
+                    <div class="col-md-4">
+                        <input class="form-control" v-model="name" id="bookname" type="text" placeholder="请填写书籍名称">
+                    </div>
+                </div>
 
-<script src='/javascripts/plugins/jquery.min.js'></script>
-<script src='/javascripts/plugins/tool.js'></script>
-<script src='/javascripts/views/user/edit.js'></script>
+                <div class="form-group">
+                    <label for="bookname" class="control-label col-md-4">状态:</label>
+                    <div class="col-md-4">
+                        <label class="radio-inline"> <input v-model="status" type="radio" name="status" value="0">未开始</label>
+                        <label class="radio-inline"> <input v-model="status" type="radio" name="status" value="1">阅读中</label>
+                        <label class="radio-inline"> <input v-model="status" type="radio" name="status" value="2">已结束</label>
+                    </div>
+                </div>
+                <div class="col-md-12 text-center">
+                    <button class="btn btn-success" type="button" id="savebtn">保存</button>
+                    <button class="btn btn-success" type="reset">清空</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<script src="/libs/vue/dist/vue.min.js"></script>
+<script src="/libs/jquery/dist/jquery.min.js"></script>
+<script src="/javascripts/plugins/tool.js"></script>
+<script src="/javascripts/views/book/edit.js"></script>
+
 </body>
 </html>

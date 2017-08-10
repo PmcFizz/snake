@@ -8,7 +8,7 @@
         var pwd=$("#pwd").val();
         $.ajax({
             type:'POST',
-            url:'/user/login',
+            url:'/user/login-post',
             data:{
                 name:name,
                 pwd:pwd
@@ -16,7 +16,7 @@
             dataType:"json",
             success:function (res) {
                  if(res.code==200){
-                     alert("登录成功!");
+                     location.reload();
                  }else{
                      alert(res.msg);
                  }
