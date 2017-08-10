@@ -16,7 +16,11 @@
                 data: function (d) {
                 }
             },
-            columns: [{"data": '_id'}, {"data": 'name'}, {"data": 'createDate'}, {"data": 'lastLoginData'}, {"data": 'lastLoginData'}, {"data": 'name'}]
+            columns: [{"data": '_id'}, {"data": 'name'}, {"data": 'gender'}, {"data": 'lastLoginData'}, {"data": 'lastLoginData'}, {"data": 'name'},
+                {"data":"_id",
+                 "fnCreatedCell":function (nTd,sData,oData) {
+                     $(nTd).html('<a href="/user/edit?id='+oData._id+'">修改</a>');
+                 }}]
         })
 
     });

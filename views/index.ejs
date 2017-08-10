@@ -1,22 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>This is my index.html</title>
+    <title>主页</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
-    <link rel="stylesheet" href="/javascripts/plugins/bootstrap/css/bootstrap.min.css"/>
     <base href="" target="_blank">
 </head>
 <body>
-<div class="container text-center">
-    <h1>They are my example</h1>
-    <p class="lead"><a href="/user/tologin">user login</a></p>
-    <p class="lead"><a href="/user/toadd">user add </a></p>
-    <p class="lead"><a href="/user/users">user list </a></p>
-    <p class="lead"><a href="/plan/addpage">plan add </a></p>
-    <p class="lead"><a href="/plan/plans">plan list </a></p>
-    <p class="lead"><a href="/ztree">zTree example</a></p>
-    <p class="lead"><a href="/tangrampuzzle">tangrampuzzle example</a></p>
-    <p class="lead"><a href="/threedubmedia">threedubmedia example</a></p>
+
+<div class="container">
+    <h1 class="text-center bg-success" style="border: 1px solid #ddd;color: #ff5722">积跬步,至千里.集小流,成江河</h1>
+
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <ul class="list-group col-md-3">
+                <li class="list-group-item"><a href="/user/login">用户登录</a></li>
+                <li class="list-group-item"><a href="/user/add">添加用户</a></li>
+                <li class="list-group-item"><a href="/user/users">用户列表</a></li>
+                <li class="list-group-item"><a href="/user/edit">修改用户</a></li>
+
+                <li class="list-group-item"><a href="/task/add">添加任务</a></li>
+                <li class="list-group-item"><a href="/task/tasks">任务列表</a></li>
+                <li class="list-group-item"><a href="/task/edit">编辑任务</a></li>
+            </ul>
+
+            <ul class="list-group col-md-3">
+                <li class="list-group-item"><a href="/interest/add">添加兴趣</a></li>
+                <li class="list-group-item"><a href="/interest/interests">兴趣列表</a></li>
+                <li class="list-group-item"><a href="/interest/edit">修改兴趣</a></li>
+
+                <li class="list-group-item"><a href="/book/add">添加书籍</a></li>
+                <li class="list-group-item"><a href="/book/books">书籍列表</a></li>
+                <li class="list-group-item"><a href="/book/edit">修改书籍</a></li>
+            </ul>
+
+            <ul class="list-group col-md-3">
+                <li class="list-group-item"><a href="/song/add">添加歌曲</a></li>
+                <li class="list-group-item"><a href="/song/songs">歌曲列表</a></li>
+                <li class="list-group-item"><a href="/song/edit">修改歌曲</a></li>
+
+                <li class="list-group-item"><a href="/playlist/add">添加歌单</a></li>
+                <li class="list-group-item"><a href="/playlist/books">歌单列表</a></li>
+                <li class="list-group-item"><a href="/playlist/edit">修改歌单</a></li>
+            </ul>
+
+            <ul class="list-group col-md-3">
+                <li class="list-group-item"><a href="/ztree">zTree示例</a></li>
+                <li class="list-group-item"><a href="/tangrampuzzle">Canvas画板</a></li>
+                <li class="list-group-item"><a href="/tangrampuzzle">七巧板示例</a></li>
+            </ul>
+        </div>
+    </div>
+
 
 
 </div>

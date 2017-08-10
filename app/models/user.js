@@ -11,6 +11,7 @@ var mongoose=require('mongoose'),
 var userSchema=new schema({
     name:String,//用户名
     age:Number,//用户年龄
+    gender:Number,//用户性别 1:男;2:女;3:无;
     createDate:{type:Date,default:Date.now()}, //创建时间
     lastLoginData:{type:Date,default:Date.now()} //上次登录时间
 });

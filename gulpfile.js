@@ -140,7 +140,7 @@ function createProxyFile(filename) {
  */
 function handleViewFolder(filename){
     gulp.src('view/factory')
-        .dest("view/"+filename);
+        .pipe(gulp.dest("view/"+filename));
 }
 
 /**

@@ -12,6 +12,14 @@ exports.addUser=function(newUser,callback){
     user.createOne(newUser,callback);
 };
 
+/**
+ * 跟新一个用户
+ */
+exports.updateUser=function (query,updateData,callback) {
+    user.findOneAndUpdate(query,updateData)
+        .exec(callback);
+}
+
 
 /**
  *根据query opt 查询符合条件的用户

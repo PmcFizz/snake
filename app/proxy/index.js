@@ -7,3 +7,6 @@ exports.user = require('./user');
 exports.plan = require('./plan');
 exports.song = require('./song');
 exports.playlist = require('./playlist');
+exports.interest = require('./interest');
+exports.task = require('./task');
+exports.book = require('./book');

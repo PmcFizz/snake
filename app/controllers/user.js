@@ -9,43 +9,42 @@ var async = require('async');
  * 添加用户页
  */
 router.get('/add', function (req, res) {
-    console.log("req.session.userid"+req.session.userid);
-    if(req.session.userid){
-        res.render('user/add');
-    }else{
-        res.render('user/login');
-    }
-
+     if(req.cookies.get("userid")){
+         res.render('user/add');
+     }else{
+         res.render('user/login');
+     }
 });
 
 /**
- * 登录页
+ * 编辑用户
  */
 router.get('/edit',function (req,res) {
     res.render('user/edit');
 });
 
 /**
- * 用户列表页
+ * 编辑用户页
  */
 router.get('/users', function (req, res) {
     res.render('user/users');
 });
 
+
+/**
+ *用户登录页
+ */
+router.post('/login',function (req,res) {
+    res.render('user/login');
+});
+
+
 /**
  *用户登录
  */
-router.post('/login',function (req,res) {
-    var params=req.body;
-    var query={"_id":"5845238d82bc6e2434e22d99"};
-    req.session.userid=query._id;
-    user.getUserDatasByQuery(query,{},function (error,returnData) {
-        if(error){
-            return returnFAIL(res,error.message);
-        }else{
-            return returnSUCCESS(res,req.session);
-        }
-    })
+router.post('/login-post',function (req,res) {
+    res.cookie('userid', '5981838b20c3c70984544551', { expires: new Date(Date.now() + 900000), httpOnly: true });
+    return returnSUCCESS(res,"12");
 });
 
 /**
@@ -60,6 +59,22 @@ router.post('/add-post', function (req, res) {
             return returnSUCCESS(res, returnData);
         }
     });
+});
+
+/**
+ * 修改一个用户
+ */
+router.post('/edit-post',function (req,res) {
+   var params=req.body;
+   var id=params.id;
+   delete  params.id;
+   user.updateUser({_id:id},{$set:params},function (err,returnData) {
+       if (err) {
+           return returnFAIL(res, err.message);
+       } else {
+           return returnSUCCESS(res, returnData);
+       }
+   })
 });
 
 /**
@@ -108,8 +123,8 @@ router.post('/queryByDataTable', function (req, res) {
     if (params.name) {
         query.name = params.name;
     }
-    opt.limit = params.length;
-    opt.skip = params.start;
+    opt.limit =  parseInt(params.length,10);
+    opt.skip = parseInt(params.start,10);
 
     async.parallel([
         function (cb) {

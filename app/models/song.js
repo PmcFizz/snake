@@ -27,5 +27,3 @@ validate.add('createUserId', {
 
 mongooseValidateFilter.validateFilter(songSchema, validate, filter);
 mongoose.model('song', songSchema);
-
-
