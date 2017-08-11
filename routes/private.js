@@ -12,9 +12,11 @@ module.exports=function(app){
 	//任务模块
 	app.use('/task',require(CONTROLLERS+'/task'));
 
-
     //socket模块
     app.use('/socket',require(CONTROLLERS+'/socket'));
+
+    //ques模块
+    app.use('/ques',require(CONTROLLERS+'/ques'));
 
 	//极客模块
 	// app.use('/geek',require(CONTROLLERS+'/geek'));

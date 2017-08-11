@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>问题</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<div class="container" id="container">
+    <div class="panel panel-success">
+        <div class="panel-body">
+            <ul class="list-group">
+                <li class="list-group-item" v-for="item in ques.one">{{item.chinese }}</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="/libs/jquery/dist/jquery.min.js"></script>
+<script src="/libs/vue/dist/vue.min.js"></script>
+<script src="/javascripts/views/ques/index.js"></script>
+
+</body>
+</html>
