@@ -21,6 +21,7 @@
     "datatables": "datatable#^1.10.15",
     "animate.css": "^3.5.2",
     "vue": "^2.4.2",
-    "angular": "angularjs#^1.6.5"
+    "angular": "angularjs#^1.6.5",
+    "socket.io-client": "^2.0.3"
   }
 }

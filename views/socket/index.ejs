@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Socket 首页</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h4>聊天室</h4>
+        </div>
+        <div class="panel-body">
+            <ul class="list-group" id="message">
+                <li class="list-group-item" id="joininfo"></li>
+            </ul>
+            <div class="form-group">
+                <div class="col-md-4">
+                    <div class="input-group">
+                        <input class="form-control" id="say" type="text" placeholder="Type here">
+                        <div class="input-group-btn">
+                            <button class="btn btn-success" type="button" id="send">发送</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/libs/socket.io-client/dist/socket.io.js"></script>
+<script src="/libs/jquery/dist/jquery.min.js"></script>
+<script src="/javascripts/views/socket/index.js"></script>
+
+</body>
+</html>
