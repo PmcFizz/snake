@@ -13,14 +13,14 @@ mongoose.connect(dbconfig.dburl, function (err) {
 
 require('./user');
 require('./plan');
-require('./song');
+// require('./song');
 require('./playlist');
 require('./interest');
 require('./task');
 require('./book');
 exports.user = mongoose.model('user');
 exports.plan = mongoose.model('plan');
-exports.song = mongoose.model('song');
+// exports.song = mongoose.model('song');
 exports.playlist = mongoose.model('playlist');
 exports.interest = mongoose.model('interest');
 exports.task=mongoose.model('task');

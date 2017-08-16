@@ -106,7 +106,8 @@ function getFileNameByPath(path) {
  * modify the create file content
  */
 function modifyModal(filename) {
-    gulp.src('app/factory/modelsmaster.js')
+    // gulp.src('app/factory/modelsmaster.js')//es5模板文件
+    gulp.src('app/factory/modelsmaster.js')//es6模板文件
         .pipe(rename({"basename": filename}))
         .pipe(replace('waitreplace', filename))
         .pipe(gulp.dest(_MODELS))
@@ -117,7 +118,8 @@ function modifyModal(filename) {
  * @param filename
  */
 function createControllerFile(filename) {
-    gulp.src('app/factory/controllersmaster.js')
+    // gulp.src('app/factory/controllersmaster.js')//es5模板文件
+    gulp.src('app/factory/controllers_es6.js')//es6模板文件
         .pipe(rename({"basename": filename}))
         .pipe(replace('waitreplace', filename))
         .pipe(replace('Waitreplace', upFirst(filename)))
@@ -128,7 +130,8 @@ function createControllerFile(filename) {
  * 根据文件名创建Proxy的对应文件
  */
 function createProxyFile(filename) {
-    gulp.src('app/factory/proxymaster.js')
+    // gulp.src('app/factory/proxymaster.js')//es5模板文件
+    gulp.src('app/factory/proxy_es6.js')//es6模板文件
         .pipe(rename({"basename": filename}))
         .pipe(replace('waitreplace', filename))
         .pipe(replace('Waitreplace', upFirst(filename)))

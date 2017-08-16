@@ -9,11 +9,41 @@
 </head>
 <body>
 <div class="container" id="container">
-    <div class="panel panel-success">
-        <div class="panel-body">
-            <ul class="list-group">
-                <li class="list-group-item" v-for="item in ques.one">{{item.chinese }}</li>
-            </ul>
+    <div class="col-md-8">
+        <div class="panel panel-success">
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="item in ques.one">{{item.chinese }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel panel-warning">
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="item in ques.two">{{item.chinese }}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="panel panel-danger">
+            <div class="panel-body">
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="item in ques.three">{{item.chinese }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <textarea class="col-md-12" rows="15" placeholder="你的答案"></textarea>
+    </div>
+
+    <div class="row col-md-4 text-center" style="margin: 20px 0px">
+        <button class="btn btn-success" type="button">提交并查看题主的答案</button>
+    </div>
+
+    <div class="col-md-4">
+        <div class="panel panel-success">
+            <p>这里用于显示题主的答案</p>
         </div>
     </div>
 </div>
