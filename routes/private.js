@@ -30,6 +30,9 @@ module.exports=function(app){
 	//书籍模块
 	app.use('/book',require(CONTROLLERS+'/book'));
 
+    //歌曲模块
+    app.use('/song',require(CONTROLLERS+'/song'));
+
 	//朋友模块
 	// app.use('/friend',require(CONTROLLERS+'/friend'));
 	

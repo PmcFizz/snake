@@ -3,7 +3,7 @@
  */
 
 let router = require('express').Router();
-let waitreplace = require(PROXY).waitreplace;
+let song = require(PROXY).song;
 let async = require('async');
 let reqBody;
 
@@ -13,7 +13,7 @@ let reqBody;
  * @param returnData return data
  */
 const resFunc = (err, returnData, res) => {
-    if (error) {
+    if (err) {
         return returnFAIL(res, err.message);
     } else {
         return returnSUCCESS(res, returnData);
@@ -21,38 +21,38 @@ const resFunc = (err, returnData, res) => {
 };
 
 /**
- * to add waitreplace page
+ * to add song page
  */
 router.get('/add', (req, res) => {
-    res.render('waitreplace/add');
+    res.render('song/add');
 });
 
 /**
- * to waitreplace list page
+ * to song list page
  */
-router.get('/waitreplaces', (req, res) => {
-    res.render('waitreplace/waitreplaces');
+router.get('/songs', (req, res) => {
+    res.render('song/songs');
 });
 
 /**
- * to waitreplace list page
+ * to song list page
  */
 router.get('/edit', (req, res) => {
-    res.render('waitreplace/edit');
+    res.render('song/edit');
 });
 
 /**
- * add one waitreplace api
+ * add one song api
  */
 router.post('/add-post', (req, res) => {
     reqBody = req.body;
-    waitreplace.addOneWaitreplace(reqBody, (error, returnData) => {
+    song.addOneSong(reqBody, (error, returnData) => {
         resFunc(error, returnData, res);
     });
 });
 
 /**
- * use dateTable query waitreplace data
+ * use dateTable query song data
  */
 router.post('/queryByDataTable', (req, res) => {
     reqBody = req.body;
@@ -66,7 +66,7 @@ router.post('/queryByDataTable', (req, res) => {
 
     async.parallel([
         (cb) => {
-            waitreplace.countWaitreplace(query, (error, returnData) => {
+            song.countSong(query, (error, returnData) => {
                 if (error) {
                     cb(error);
                 } else {
@@ -75,7 +75,7 @@ router.post('/queryByDataTable', (req, res) => {
             });
         },
         (cb) => {
-            waitreplace.queryWaitreplaceByPage(query, opt, (error, returnData) => {
+            song.querySongByPage(query, opt, (error, returnData) => {
                 if (error) {
                     cb(error);
                 } else {
@@ -100,42 +100,42 @@ router.post('/queryByDataTable', (req, res) => {
 router.post('/del-post', (req, res) => {
     reqBody = req.body;
     let id = reqBody._id ? reqBody._id : reqBody.id;
-    waitreplace.delOneWaitreplace({_id: id}, (error, resData) => {
+    song.delOneSong({_id: id}, (error, resData) => {
         resFunc(error, resData, res);
     })
 });
 
 /**
- * query only one  waitreplace data
+ * query only one  song data
  */
 router.post('/queryById', (req, res) => {
     reqBody = req.body;
     let id = reqBody._id ? reqBody._id : reqBody.id;
-    waitreplace.findOneWaitreplace(id, (error, returnData) => {
+    song.findOneSong(id, (error, returnData) => {
         resFunc(error, returnData, res);
     });
 });
 
 /**
- * query waitreplace data
+ * query song data
  */
 router.post('/query', (req, res) => {
     reqBody = req.body;
     let option = {};
-    waitreplace.queryWaitreplaces(reqBody, option, (error, returnData) => {
+    song.querySongs(reqBody, option, (error, returnData) => {
         resFunc(error, returnData, res);
     });
 });
 
 /**
- * update one waitreplace data
+ * update one song data
  */
 router.post('/update-post', (req, res) => {
     reqBody = req.body;
     let id = reqBody._id ? reqBody._id : reqBody.id;
     delete  reqBody._id;
     delete  reqBody.id;
-    waitreplace.updateOneWaitreplace({_id: id}, {$set: reqBody}, (error, returnData) => {
+    song.updateOneSong({_id: id}, {$set: reqBody}, (error, returnData) => {
         resFunc(error, returnData, res);
     });
 });

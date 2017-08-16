@@ -14,7 +14,7 @@
             <h4>添加歌曲</h4>
         </div>
         <div class="panel-body">
-            <form class="form-horizontal" role="form" id="bookform">
+            <form class="form-horizontal" role="form" id="dataform">
                 <div class="form-group">
                     <label for="bookname" class="control-label col-md-4">名称:</label>
                     <div class="col-md-4">
@@ -22,34 +22,11 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="bookname" class="control-label col-md-4">链接:</label>
+                    <label for="link" class="control-label col-md-4">链接:</label>
                     <div class="col-md-4">
-                        <input class="form-control" v-model="name" id="name" type="text" placeholder="请填写书籍名称">
+                        <input class="form-control" v-model="link" id="link" type="text" placeholder="请填写书籍名称">
                     </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="bookname" class="control-label col-md-4">状态:</label>
-                    <div class="col-md-4">
-                        <label class="radio-inline"> <input v-model="status" type="radio" name="status" value="0">未开始</label>
-                        <label class="radio-inline"> <input v-model="status" type="radio" name="status" value="1">阅读中</label>
-                        <label class="radio-inline"> <input v-model="status" type="radio" name="status" value="2">已结束</label>
-                    </div>
-                </div>
-
-                <!--<div class="form-group">
-                    <label for="bookname" class="control-label col-md-4">名称:</label>
-                    <div class="col-md-4">
-                        <input class="form-control" id="bookname" type="text" placeholder="请填写书籍名称">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="bookname" class="control-label col-md-4">名称:</label>
-                    <div class="col-md-4">
-                        <input class="form-control" id="bookname" type="text" placeholder="请填写书籍名称">
-                    </div>
-                </div>-->
-
                 <div class="col-md-12 text-center">
                     <button class="btn btn-success" type="button" id="addbtn">保存</button>
                     <button class="btn btn-success" type="reset">清空</button>
@@ -61,7 +38,7 @@
 </div>
 <script src="/libs/vue/dist/vue.min.js"></script>
 <script src="/libs/jquery/dist/jquery.min.js"></script>
-<script src="/javascripts/views/book/add.js"></script>
+<script src="/javascripts/views/song/add.js"></script>
 
 </body>
 </html>
