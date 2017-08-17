@@ -9,7 +9,7 @@ var async = require('async');
  * 添加用户页
  */
 router.get('/add', function (req, res) {
-     if(req.cookies.get("userid")){
+     if(req.cookies.userid){
          res.render('user/add');
      }else{
          res.render('user/login');

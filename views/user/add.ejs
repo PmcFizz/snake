@@ -1,18 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>我的界面</title>
+    <title>添加用户</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="/libs/bootstrap/dist/css/bootstrap.min.css"/>
     <link rel='stylesheet' href='/stylesheets/style.css'/>
 </head>
 <body>
-<h1>This is my.ejs</h1>
-<p>Welcome to My ejs wolrd</p>
-<input id="name" placeholder="请输入用户名称"/>
-<input id="age" placeholder="请输入用户年龄"/>
-<input id="gender" placeholder="请输入用户性别"/>
-<button id="adduserbtn">添加一个用户</button>
+<div class="container">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h4>添加用户</h4>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" role="form" id="dataform">
+                <div class="form-group">
+                    <label for="bookname" class="control-label col-md-4">名称:</label>
+                    <div class="col-md-4">
+                        <input class="form-control" v-model="name" id="bookname" type="text" placeholder="请填写用户姓名">
+                    </div>
+                </div>
 
-<script src='/javascripts/plugins/jquery.min.js'></script>
-<script src='/javascripts/views/user/add.js'></script>
+                <div class="form-group">
+                    <label for="age" class="control-label col-md-4">年龄:</label>
+                    <div class="col-md-4">
+                        <input class="form-control" v-model="age" id="age" type="text" placeholder="请填写年龄">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender" class="control-label col-md-4">性别:</label>
+                    <div class="col-md-4">
+                        <label class="radio-inline"> <input v-model="gender" type="radio" name="gender" value="1">男</label>
+                        <label class="radio-inline"> <input v-model="gender" type="radio" name="gender" value="2">女</label>
+                    </div>
+                </div>
+
+                <div class="col-md-12 text-center">
+                    <button class="btn btn-success" type="button" id="addbtn">保存</button>
+                    <button class="btn btn-success" type="reset">清空</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<script src="/libs/vue/dist/vue.min.js"></script>
+<script src="/libs/axios/dist/axios.min.js"></script>
+<script src="/javascripts/views/user/add.js"></script>
+
 </body>
 </html>
