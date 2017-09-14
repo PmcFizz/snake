@@ -23,6 +23,7 @@
     "vue": "^2.4.2",
     "angular": "angularjs#^1.6.5",
     "socket.io-client": "^2.0.3",
-    "axios": "^0.16.2"
+    "axios": "^0.16.2",
+    "weui": "^1.1.2"
   }
 }

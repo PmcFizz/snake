@@ -132,41 +132,52 @@
 // }
 
 
-var dirjson = require('./dir.json');
-var dirarr=dirjson.data;
-var finallyArr=[];
+// var dirjson = require('./dir.json');
+// var dirarr=dirjson.data;
+// var finallyArr=[];
+//
+// //转换数据结构
+// function handArr(arr) {
+//     var len=arr.length;
+//     for(var i=0;i<len;i++){
+//         var item=arr[i];
+//         var itemArr=item.split("/");
+//         if(itemArr.length>1){
+//             var fronEle=findFronEle(itemArr[0],finallyArr);
+//             finallyArr[fronEle].children.push(itemArr[1]);
+//
+//         }else{
+//             var obj={name:item,children:[]}
+//             finallyArr.push(obj);
+//         }
+//     }
+// }
+//
+// //找到前一个节点
+// function  findFronEle(str,arr) {
+//     var len=arr.length;
+//     for(var i=0;i<len;i++){
+//         var item=arr[i];
+//         if(item.name==str){
+//             return i;
+//         }
+//     }
+//     return -1;
+// }
+//
+// handArr(dirarr);
+//
+// console.log(finallyArr);
+//
+// [{name: "三国演义", status: 0}, {name: "水浒传", status: 1}, {name: "西游记", status: 0}, {
+//     name: "金瓶梅",
+//     status: 0
+// }].forEach(function (item,index) {
+//     $.post('/book/add-post',item, function (res) {
+//         console.log("成功"+index);
+//     }, 'json');
+// });
 
-//转换数据结构
-function handArr(arr) {
-    var len=arr.length;
-    for(var i=0;i<len;i++){
-        var item=arr[i];
-        var itemArr=item.split("/");
-        if(itemArr.length>1){
-            var fronEle=findFronEle(itemArr[0],finallyArr);
-            finallyArr[fronEle].children.push(itemArr[1]);
-
-        }else{
-            var obj={name:item,children:[]}
-            finallyArr.push(obj);
-        }
-    }
-}
-
-//找到前一个节点
-function  findFronEle(str,arr) {
-    var len=arr.length;
-    for(var i=0;i<len;i++){
-        var item=arr[i];
-        if(item.name==str){
-            return i;
-        }
-    }
-    return -1;
-}
-
-handArr(dirarr);
-
-console.log(finallyArr);
-
-
+// $.post('/book/add-post',{name:红楼梦,status:0},function (res) {
+//     console.log(res);
+// },'json');
