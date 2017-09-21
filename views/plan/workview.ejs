@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>我的工作视图(世茂2.5.0版本)</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/javascripts/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/libs/z-tree.v3/css/zTreeStyle/zTreeStyle.css"/>
+    <link rel="stylesheet" href="/libs/z-tree.v3/css/demo.css"/>
+    <style>
+        div.content_wrap {
+            width: 100%;
+        }
+
+        div.content_wrap div.left {
+            width: 100%;
+        }
+
+        ul.ztree {
+            margin: 20px auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="panel panel-success">
+        <div class="panel-heading">
+            <h4>显示计划</h4>
+        </div>
+        <div class="panel-body">
+            <div class="content_wrap">
+                <div class="zTreeDemoBackground left">
+                    <ul id="treeDemo" class="ztree"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/libs/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript" src="/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/libs/z-tree.v3/js/jquery.ztree.all.min.js"></script>
+<script>
+    var setting = {};
+
+    //    var res = {
+    //        "data": [{"name": "A", "children": [{"name": "Afra"}]}, {
+    //            "name": "C",
+    //            "children": [{"name": "春夏"}, {"name": "陈志彬"}, {"name": "陈伟"}]
+    //        }, {"name": "F", "children": [{"name": "Fizz"}, {"name": "冯范敏"}]}, {
+    //            "name": "G",
+    //            "children": [{"name": "郭徐斌"}]
+    //        }, {"name": "H", "children": [{"name": "侯凤霞"}, {"name": "盒子张侃"}, {"name": "何玫"}, {"name": "韩露"}]}, {
+    //            "name": "J",
+    //            "children": [{"name": "洁猫"}, {"name": "姐夫"}, {"name": "娇娇"}]
+    //        }, {
+    //            "name": "L",
+    //            "children": [{"name": "罗龙"}, {"name": "Lulu^ω^"}, {"name": "刘巧"}, {"name": "刘姐"}, {"name": "李慧芳"}, {"name": "梨涡浅笑丶"}, {"name": "蕾蕾"}, {"name": "L"}]
+    //        }, {"name": "M", "children": [{"name": "梦娜"}, {"name": "梦超"}, {"name": "MassSendApp"}]}, {
+    //            "name": "P",
+    //            "children": [{"name": "普刚"}, {"name": "鹏飞哥"}, {"name": "潘天雁"}]
+    //        }, {"name": "R", "children": [{"name": "人事"}]}, {
+    //            "name": "S",
+    //            "children": [{"name": "孙艳萍"}, {"name": "帅赓"}]
+    //        }, {"name": "T", "children": [{"name": "天朝汉子夏雨荷 i"}, {"name": "谭一莲"}, {"name": "唐政"}]}, {
+    //            "name": "W",
+    //            "children": [{"name": "我叫姚洲"}, {"name": "File Transfer"}, {"name": "WeChat Team"}, {"name": "王一正"}, {"name": "王新利"}, {"name": "王巧"}, {"name": "王辉"}, {"name": "王海云"}]
+    //        }, {"name": "X", "children": [{"name": "徐思伟"}, {"name": "许富超"}, {"name": "肖传毅"}]}, {
+    //            "name": "Y",
+    //            "children": [{"name": "叶紫"}, {"name": "严晓静"}]
+    //        }, {"name": "Z", "children": [{"name": "紫藤"}, {"name": "张慧君"}]}]
+    //    }
+    var data = [{
+        name: '会员中心', open: true, children: [
+            {name: '会员中心'},
+            {name: '我的积分'},
+            {name: '赚积分'},
+            {name: '我的卡劵'},
+            {name: '卡劵详情'},
+            {name: '优惠券详情页'},
+            {name: '门店详情页'},
+            {name: '领取卡劵'}
+        ]
+    },
+        {
+            name: '积分商城', open: true, children: [
+            {name: '商城列表'},
+            {name: '选择城市'}
+        ]
+        },
+        {
+            name: '核销管理(后)', open: true, children: [
+            {name: '核销员管理'},
+            {name: '劵码核销'},
+            {name: '核销记录'}
+        ]
+        },
+        {
+            name: '优惠管理', open: true, children: [
+            {name: '积分活动'},
+            {name: '积分商城-商品管理'},
+            {name: '积分商城-兑换记录'},
+            {name: '卡劵活动-卡劵列表'},
+            {name: '卡劵活动-直接领取'},
+            {name: '卡劵活动-手动派发'},
+            {name: '卡劵活动-新增卡劵'},
+            {name: '卡劵活动-领取记录'},
+            {name: '卡劵活动-添加直接领取'},
+            {name: '卡劵活动-扫码记录'},
+            {name: '卡劵活动-派送卡劵'}
+        ]
+        },
+        {
+            name: '核销管理(前)', open: true, children: [
+            {name: '核销提示'}
+        ]
+        }
+    ]
+
+    $.fn.zTree.init($("#treeDemo"), setting, data);
+
+
+</script>
+</body>
+</html>

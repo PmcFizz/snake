@@ -19,6 +19,16 @@ router.get('/edit',function(req,res){
     res.render('plan/edit')
 });
 
+//查看我的工作计划
+router.get('/workview',function (req,res) {
+    res.render("plan/workview");
+});
+
+//工作学习计划
+router.get('/workstudy',function (req,res) {
+    res.render("plan/workstudy");
+});
+
 //添加计划api
 router.post('/add-post', function (req, res) {
     var params = req.body;

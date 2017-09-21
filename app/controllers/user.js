@@ -5,13 +5,13 @@ var router = require('express').Router();
 var user = require(PROXY).user;
 var async = require('async');
 
-router.use(function (req, res, next) {
-    if (!req.cookies.userid) {
-        res.render('user/login');
-    } else {
-        next();
-    }
-})
+// router.use(function (req, res, next) {
+//     if (!req.cookies.userid) {
+//         res.render('user/login');
+//     } else {
+//         next();
+//     }
+// })
 
 /**
  * 添加用户页
@@ -51,7 +51,7 @@ router.post('/login', function (req, res) {
  *用户登录
  */
 router.post('/login-post', function (req, res) {
-    res.cookie('userid', '5981838b20c3c70984544551', {expires: new Date(Date.now() + 900000), httpOnly: true});
+    res.cookie('userid', '5981838b20c3c709845441', {expires: new Date(Date.now() + 900000), httpOnly: true});
     return returnSUCCESS(res, "12");
 });
 
