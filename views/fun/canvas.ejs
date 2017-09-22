@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>canvas联系</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        html body {
+            height: 100%;
+            width: 100%;
+            background-color: #009688;
+        }
+
+        html {
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+<canvas id="firstload" height="300" width="300"></canvas>
+<canvas id="secondload" height="300" width="300"></canvas>
+<canvas id="thirdload" height="300" width="300"></canvas>
+<canvas id="forthload" height="300" width="300"></canvas>
+<canvas id="fifthload" height="300" width="300"></canvas>
+
+<script>
+    let cvsfirst = document.getElementById("firstload");
+    let ctxfirst = cvsfirst.getContext('2d');
+
+    let cvssecond = document.getElementById("secondload");
+    let ctxsecond = cvssecond.getContext('2d');
+
+    let cvsthird = document.getElementById("thirdload");
+    let ctxthird = cvsthird.getContext('2d');
+
+    let cvsforth = document.getElementById("forthload");
+    let ctxforth = cvsforth.getContext('2d');
+
+    let cvsfifth = document.getElementById("fifthload");
+    let ctxfifth = cvsfifth.getContext('2d');
+
+    //一号道
+    ctxfirst.fillStyle = "#101010";
+    ctxfirst.fillRect(0, 0, 300, 300);
+
+    //二号道
+    ctxsecond.fillStyle = "#101010";
+    ctxsecond.fillRect(0, 0, 300, 300);
+    ctxsecond.strokeStyle = "#ffffff";
+    ctxsecond.beginPath();
+    ctxsecond.moveTo(50, 20);
+    ctxsecond.lineTo(250, 20);
+    ctxsecond.closePath();
+    ctxsecond.stroke();
+    ctxsecond.beginPath();
+    ctxsecond.moveTo(50, 20);
+    ctxsecond.lineTo(50, 280);
+    ctxsecond.stroke();
+
+
+    //三号道
+    ctxthird.fillStyle = "#101010";
+    ctxthird.fillRect(0, 0, 300, 300);
+
+    //四号道
+    ctxforth.fillStyle = "#101010";
+    ctxforth.fillRect(0, 0, 300, 300);
+
+    //五号道
+    ctxfifth.fillStyle = "#101010";
+    ctxfifth.fillRect(0, 0, 300, 300);
+
+
+</script>
+</body>
+</html>

@@ -18,6 +18,9 @@ module.exports=function(app){
     //ques模块
     app.use('/ques',require(CONTROLLERS+'/ques'));
 
+    //fun模块
+    app.use('/fun',require(CONTROLLERS+'/fun'));
+
 	//极客模块
 	// app.use('/geek',require(CONTROLLERS+'/geek'));
 
