@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>世茂2.5.0接口文档概要</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">     
+  </head>
+  <body ng-app="myApp" ng-controller="myAppCtrl">
+
+    <div class="container">      
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+        <div class="panel panel-danger" ng-repeat="m in apiDocData">
+          <div class="panel-heading" role="tab" id={{"heading"+m.id}}>
+            <h4 class="panel-title">
+              <a role="button" data-toggle="collapse" data-parent="#accordion" href={{"#collapse"+m.id}} aria-expanded="true" aria-controls={{"collapse"+m.id}}>
+                {{m.name}}
+              </a>
+            </h4>
+          </div>
+          <div id={{"collapse"+m.id}} class="panel-collapse collapse in" role="tabpanel" aria-labelledby={{"heading"+m.id}}>
+            <div class="panel-body">
+              
+              <div class="panel panel-info" ng-repeat="page in m.child">
+                <div class="panel-heading" style="padding: 1px 10px"><h5>{{page.name}}</h5></div>
+                <div class="panel-body">
+                  111
+                </div>
+              </div>
+
+             
+            </div>
+          </div>
+        </div>
+
+</div>
+    </div>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://shimao.admin.dev/ace/js/aab30649fcbab646916b4c3c51d3bf27.js"></script>
+  <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    var app=angular.module("myApp",[]);
+    app.controller('myAppCtrl',function($scope){
+       $scope.apiDocData=[
+         {id:"first",name:"会员中心(微信)",type:"微信页面",url:"",des:"",child:[
+            {name:"会员中心",type:"微信页面",url:"",des:"",child:[]},
+            {name:"我的积分",type:"微信页面",url:"",des:"",child:[]},
+            {name:"赚积分",type:"微信页面",url:"",des:"",child:[]},
+            {name:"用户卡劵列表",type:"微信页面",url:"",des:"",child:[]},
+            {name:"卡劵详情",type:"微信页面",url:"",des:"",child:[]},
+            {name:"优惠劵详情",type:"微信页面",url:"",des:"",child:[]},
+            {name:"门店详情",type:"微信页面",url:"",des:"",child:[]},
+            {name:"领取卡劵",type:"微信页面",url:"",des:"",child:[]}
+         ]},
+         {id:"second",name:"积分商城(微信)",type:"微信页面",url:"",des:"",child:[
+            {name:"商品列表",type:"微信页面",url:"",des:"",child:[]},
+            {name:"城市选择",type:"微信页面",url:"",des:"",child:[]}           
+         ]},
+         {id:"third",name:"核销管理(微信)",type:"微信页面",url:"",des:"",child:[
+            {name:"核销提示页",type:"微信页面",url:"",des:"",child:[]},
+            {name:"核销",type:"微信页面",url:"",des:"",child:[]}            
+         ]},
+         {id:"fourth",name:"优惠活动(管理)",type:"微信页面",url:"",des:"",child:[
+            {name:"积分活动",type:"微信页面",url:"",des:"",child:[]},
+            {name:"商品管理",type:"微信页面",url:"",des:"",child:[]},
+            {name:"兑换记录",type:"微信页面",url:"",des:"",child:[]},
+            {name:"卡劵列表",type:"微信页面",url:"",des:"",child:[]},
+            {name:"直接领取列表",type:"微信页面",url:"",des:"",child:[]},
+            {name:"手动派发列表",type:"微信页面",url:"",des:"",child:[]},
+            {name:"领取记录",type:"微信页面",url:"",des:"",child:[]},
+            {name:"新增卡劵",type:"微信页面",url:"",des:"",child:[]},
+            {name:"添加直接领取",type:"微信页面",url:"",des:"",child:[]},
+            {name:"扫码记录",type:"微信页面",url:"",des:"",child:[]},
+            {name:"手动派发添加",type:"微信页面",url:"",des:"",child:[]}            
+         ]},
+         {id:"fivth",name:"核销管理(管理)",type:"微信页面",url:"",des:"",child:[
+            {name:"核销员管理",type:"微信页面",url:"",des:"",child:[]},
+            {name:"劵码核销",type:"微信页面",url:"",des:"",child:[]},
+            {name:"核销记录",type:"微信页面",url:"",des:"",child:[]}            
+         ]}
+       ]
+     });
+   
+  </script>
+
+  </body>
+</html>
