@@ -5,6 +5,11 @@
     <title>世茂2.5.0接口文档概要</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">     
+    <style type="text/css">
+      .list-group-item{
+        padding-bottom: 0px
+      }
+    </style>
   </head>
   <body ng-app="myApp" ng-controller="myAppCtrl">
 
@@ -25,7 +30,15 @@
               <div class="panel panel-info" ng-repeat="page in m.child">
                 <div class="panel-heading" style="padding: 1px 10px"><h5>{{page.name}}</h5></div>
                 <div class="panel-body">
-                  111
+                  <ul class="list-group">
+                    <li class="list-group-item" ng-repeat="ap in page.child">
+                      <p>
+                        <span>接口描述&nbsp;:&nbsp;{{ap.name}}</span>
+                        <span>请求参数&nbsp;:&nbsp;{{ap.req}}</span>
+                        <span>返回数据&nbsp;:&nbsp;{{ap.res}}</span>
+                      </p>
+                    </li>
+                  </ul>
                 </div>
               </div>
 
@@ -41,43 +54,195 @@
   <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script type="text/javascript">
     var app=angular.module("myApp",[]);
-    app.controller('myAppCtrl',function($scope){
+    app.controller('myAppCtrl',function($scope){ 
        $scope.apiDocData=[
          {id:"first",name:"会员中心(微信)",type:"微信页面",url:"",des:"",child:[
-            {name:"会员中心",type:"微信页面",url:"",des:"",child:[]},
-            {name:"我的积分",type:"微信页面",url:"",des:"",child:[]},
-            {name:"赚积分",type:"微信页面",url:"",des:"",child:[]},
-            {name:"用户卡劵列表",type:"微信页面",url:"",des:"",child:[]},
-            {name:"卡劵详情",type:"微信页面",url:"",des:"",child:[]},
-            {name:"优惠劵详情",type:"微信页面",url:"",des:"",child:[]},
-            {name:"门店详情",type:"微信页面",url:"",des:"",child:[]},
-            {name:"领取卡劵",type:"微信页面",url:"",des:"",child:[]}
+            {name:"会员中心",type:"微信页面",url:"",des:"",child:[
+              {name:"获取我的积分我的卡劵",type:"微信页面",url:"",req:"无",res:"积分数,卡劵数"}                    
+            ]},
+            {name:"我的积分",type:"微信页面",url:"",des:"",child:[
+              {name:"分页获取我的积分收入",type:"微信页面",url:"",req:"无",res:"可用积分,积分收入日期,类型,获取的积分数"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"赚积分",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"用户卡劵列表",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"卡劵详情",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"优惠劵详情",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"门店详情",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"领取卡劵",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]}
          ]},
          {id:"second",name:"积分商城(微信)",type:"微信页面",url:"",des:"",child:[
-            {name:"商品列表",type:"微信页面",url:"",des:"",child:[]},
-            {name:"城市选择",type:"微信页面",url:"",des:"",child:[]}           
+            {name:"商品列表",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"城市选择",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]}           
          ]},
          {id:"third",name:"核销管理(微信)",type:"微信页面",url:"",des:"",child:[
-            {name:"核销提示页",type:"微信页面",url:"",des:"",child:[]},
-            {name:"核销",type:"微信页面",url:"",des:"",child:[]}            
+            {name:"核销提示页",type:"微信页面",url:"",des:"",child:[
+            {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+              ]},
+            {name:"核销",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]}            
          ]},
          {id:"fourth",name:"优惠活动(管理)",type:"微信页面",url:"",des:"",child:[
-            {name:"积分活动",type:"微信页面",url:"",des:"",child:[]},
-            {name:"商品管理",type:"微信页面",url:"",des:"",child:[]},
-            {name:"兑换记录",type:"微信页面",url:"",des:"",child:[]},
-            {name:"卡劵列表",type:"微信页面",url:"",des:"",child:[]},
-            {name:"直接领取列表",type:"微信页面",url:"",des:"",child:[]},
-            {name:"手动派发列表",type:"微信页面",url:"",des:"",child:[]},
-            {name:"领取记录",type:"微信页面",url:"",des:"",child:[]},
-            {name:"新增卡劵",type:"微信页面",url:"",des:"",child:[]},
-            {name:"添加直接领取",type:"微信页面",url:"",des:"",child:[]},
-            {name:"扫码记录",type:"微信页面",url:"",des:"",child:[]},
-            {name:"手动派发添加",type:"微信页面",url:"",des:"",child:[]}            
+            {name:"积分活动",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"商品管理",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"兑换记录",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"卡劵列表",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"直接领取列表",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"手动派发列表",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"领取记录",type:"微信页面",url:"",des:"",child:[
+                {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"新增卡劵",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"添加直接领取",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"扫码记录",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"手动派发添加",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]}            
          ]},
          {id:"fivth",name:"核销管理(管理)",type:"微信页面",url:"",des:"",child:[
-            {name:"核销员管理",type:"微信页面",url:"",des:"",child:[]},
-            {name:"劵码核销",type:"微信页面",url:"",des:"",child:[]},
-            {name:"核销记录",type:"微信页面",url:"",des:"",child:[]}            
+            {name:"核销员管理",type:"微信页面",url:"",des:"",child:[
+                {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"劵码核销",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]},
+            {name:"核销记录",type:"微信页面",url:"",des:"",child:[
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"},
+              {name:"接口1",type:"微信页面",url:"",req:"id,name,title",res:"errcode errmsg"}
+            ]}            
          ]}
        ]
      });
