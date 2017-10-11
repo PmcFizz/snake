@@ -1,0 +1,49 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<style type="text/css">
+	*{padding: 0px;margin: 0px}
+	html,body{height: 100%;width: 100%;}
+	.container{position: relative;margin:0 auto; text-align: center;width: 50%;}
+	.red{color: red};
+	.btn{}
+	.btn.start{}
+</style>
+<body>
+	<div class="container">
+		<h1 class="red">Money:<span id="money"></span></h1>
+		<!-- <p>本月工作日:<span id="workDayNum" class="red"></span>天,每天9小时</p> -->
+		<div>
+			<button class="btn start">开始</button>			
+		</div>
+	</div>
+	<script type="text/javascript">
+		var firstDate=new Date();
+		firstDate.setDate(1);
+		var xq= firstDate.getDay();
+		var d = new Date();
+		var dayCount = new Date(d.getFullYear(), (d.getMonth()+1), 0).getDate();
+		var temp=dayCount-28;
+		var workDayNum=20
+		for(var i=0;i<temp;i++){
+			if((xq+i)!==0 && (xq+i)!==6){
+				workDayNum++;
+			}
+		}
+
+		var oneDayMoney=parseInt(14000/workDayNum,10);	 
+		var everySecond=oneDayMoney/540;
+		var showMoney=0;
+
+		setInterval(function(){
+			showMoney=showMoney+everySecond;
+			document.querySelector("#money").innerText=showMoney;
+		},1000*60)
+		
+
+		
+	</script>
+</body>
+</html>
