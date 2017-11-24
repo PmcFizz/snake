@@ -4,7 +4,8 @@
 var router = require('express').Router();
 var user = require(PROXY).user;
 var async = require('async');
-
+var formidable = require('formidable');
+var fs=require('fs');
 // router.use(function (req, res, next) {
 //     if (!req.cookies.userid) {
 //         res.render('user/login');
@@ -165,4 +166,23 @@ router.post('/queryByDataTable', function (req, res) {
     });
 });
 
+//上传图片
+router.post('/upload',function (req,res) {
+    var form=new formidable.IncomingForm();
+    form.encoding='utf-8'
+    form.uploadDir='/data/';
+    form.keepExtensionst=true;
+    form.maxFieldsSize=2*1024*1024
+
+    form.parse(req,function (err,fields,files) {
+        var extName='jpg';
+        var avatarName=Math.random()+'.'+extName;
+        var newPath=form.uploadDir+avatarName;
+        fs.renameSync(files.fulAvatar.path,newPath);
+        res.json({
+            'code':200
+        })
+    })
+
+});
 module.exports = router;

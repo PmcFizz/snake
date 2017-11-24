@@ -18,6 +18,7 @@
     "ejs": "~2.5.2",
     "express": "~4.14.0",
     "express-session": "^1.14.2",
+    "formidable": "^1.1.1",
     "gulp": "^3.9.1",
     "gulp-rename": "^1.2.2",
     "gulp-replace": "^0.5.4",
